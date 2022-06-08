@@ -1,0 +1,7 @@
+﻿namespace Employees
+{
+    enum Subunit
+    {
+        
+    }
+}
