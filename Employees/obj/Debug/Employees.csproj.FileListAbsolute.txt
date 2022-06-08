@@ -1,16 +1,8 @@
 D:\код\Employees\Employees\bin\Debug\Employees.exe.config
 D:\код\Employees\Employees\bin\Debug\Employees.exe
 D:\код\Employees\Employees\bin\Debug\Employees.pdb
-D:\код\Employees\Employees\bin\Debug\System.Buffers.dll
 D:\код\Employees\Employees\bin\Debug\System.Data.SQLite.dll
-D:\код\Employees\Employees\bin\Debug\System.Memory.dll
-D:\код\Employees\Employees\bin\Debug\System.Numerics.Vectors.dll
-D:\код\Employees\Employees\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-D:\код\Employees\Employees\bin\Debug\System.Buffers.xml
 D:\код\Employees\Employees\bin\Debug\System.Data.SQLite.xml
-D:\код\Employees\Employees\bin\Debug\System.Memory.xml
-D:\код\Employees\Employees\bin\Debug\System.Numerics.Vectors.xml
-D:\код\Employees\Employees\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\код\Employees\Employees\obj\Debug\Employees.csproj.AssemblyReference.cache
 D:\код\Employees\Employees\obj\Debug\Employees.MainForm.resources
 D:\код\Employees\Employees\obj\Debug\Employees.Properties.Resources.resources
