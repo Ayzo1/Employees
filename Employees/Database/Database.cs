@@ -1,5 +1,6 @@
 ﻿using System.Data.SQLite;
 using System.IO;
+using System;
 
 namespace Employees.Database
 {
@@ -9,7 +10,8 @@ namespace Employees.Database
 
         public Database() 
         {
-            Connection = new SQLiteConnection("Data Source=database.sqlite3");
+            var a = $"{AppDomain.CurrentDomain.BaseDirectory}";
+            Connection = new SQLiteConnection($"Data Source={AppDomain.CurrentDomain.BaseDirectory}database.sqlite3");
         }
 
         public void OpenConnection()
