@@ -1,0 +1,13 @@
+D:\код\Employees\Employees\bin\Release\Employees.exe.config
+D:\код\Employees\Employees\bin\Release\Employees.exe
+D:\код\Employees\Employees\bin\Release\Employees.pdb
+D:\код\Employees\Employees\bin\Release\System.Data.SQLite.dll
+D:\код\Employees\Employees\bin\Release\System.Data.SQLite.xml
+D:\код\Employees\Employees\obj\Release\Employees.csproj.AssemblyReference.cache
+D:\код\Employees\Employees\obj\Release\Employees.MainForm.resources
+D:\код\Employees\Employees\obj\Release\Employees.Properties.Resources.resources
+D:\код\Employees\Employees\obj\Release\Employees.csproj.GenerateResource.cache
+D:\код\Employees\Employees\obj\Release\Employees.csproj.CoreCompileInputs.cache
+D:\код\Employees\Employees\obj\Release\Employees.csproj.CopyComplete
+D:\код\Employees\Employees\obj\Release\Employees.exe
+D:\код\Employees\Employees\obj\Release\Employees.pdb
