@@ -1,12 +1,12 @@
 ﻿namespace Employees
 {
-    abstract class Employee
+    public abstract class Employee
     {
         public int Id { get; }
         public string Name { get; set; }
         public Gender Gender { get; }
         public string BirthDate { get; }
-        public int Subunit { get; set; }
+        public Subunit Subunit { get; set; }
         public JobTitle JobTitle { get; set; }
 
         public Employee(
@@ -14,7 +14,7 @@
             string name, 
             Gender gender, 
             string birthDate, 
-            int subunit, 
+            Subunit subunit, 
             JobTitle jobTitle)
         {
             Id = id;

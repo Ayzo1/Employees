@@ -35,12 +35,15 @@ namespace Employees.Database
         public void ChangeEmployee(Employee employee)
         {
             var query = "UPDATE employee SET " +
-                $"name = @name, subunit = @subunit, job = @job WHERE id = { employee.Id }";
+                $"name = @name, birthDate = @date, gender = @gender, subunit = @subunit, job = @job, " +
+                $"managerName = @managerName, subunitName = @subunitName, conveyorNumber = @conveyorNumber, cabinetNumber = @cabinetNumber WHERE id = { employee.Id }";
             databaseObject.OpenConnection();
             var createCommand = new SQLiteCommand(query, databaseObject.Connection);
             createCommand.Parameters.AddWithValue("@name", employee.Name);
-            createCommand.Parameters.AddWithValue("@subunit", "1");
-            createCommand.Parameters.AddWithValue("@job", ((int)employee.JobTitle));
+            createCommand.Parameters.AddWithValue("@gender", employee.Gender.ToString());
+            createCommand.Parameters.AddWithValue("@date", employee.BirthDate);
+            createCommand.Parameters.AddWithValue("@subunit", (int)employee.Subunit);
+            createCommand.Parameters.AddWithValue("@job", (int)employee.JobTitle);
             
             switch (employee.JobTitle)
             {
@@ -49,20 +52,28 @@ namespace Employees.Database
                     createCommand.Parameters.AddWithValue("@managerName", worker.ManagerName);
                     createCommand.Parameters.AddWithValue("@subunitName", null);
                     createCommand.Parameters.AddWithValue("@conveyorNumber", null);
+                    createCommand.Parameters.AddWithValue("@cabinetNumber", null);
                     break;
                 case JobTitle.Controller:
                     var controller = (Controller)employee;
                     createCommand.Parameters.AddWithValue("@conveyorNumber", controller.ConveyorNumber);
                     createCommand.Parameters.AddWithValue("@managerName", null);
                     createCommand.Parameters.AddWithValue("@subunitName", null);
+                    createCommand.Parameters.AddWithValue("@cabinetNumber", null);
                     break;
                 case JobTitle.Manager:
                     var manager = (Manager)employee;
                     createCommand.Parameters.AddWithValue("@subunitName", manager.SubunitName);
                     createCommand.Parameters.AddWithValue("@managerName", null);
                     createCommand.Parameters.AddWithValue("@conveyorNumber", null);
+                    createCommand.Parameters.AddWithValue("@cabinetNumber", null);
                     break;
                 case JobTitle.Director:
+                    var director = (Director)employee;
+                    createCommand.Parameters.AddWithValue("@subunitName", null);
+                    createCommand.Parameters.AddWithValue("@managerName", null);
+                    createCommand.Parameters.AddWithValue("@conveyorNumber", null);
+                    createCommand.Parameters.AddWithValue("@cabinetNumber", director.CabinetNumber);
                     break;
             }
             
@@ -82,15 +93,15 @@ namespace Employees.Database
         public void CreateEmployee(Employee employee)
         {
             var query = "INSERT INTO employee " +
-                "(name, gender, birthDate, subunit, job, managerName, subunitName, conveyorNumber)" +
-                "VALUES (@name, @gender, @birthDate, @subunit, @job, @managerName, @subunitName, @conveyorNumber)";
+                "(name, gender, birthDate, subunit, job, managerName, subunitName, conveyorNumber, cabinetNumber)" +
+                "VALUES (@name, @gender, @birthDate, @subunit, @job, @managerName, @subunitName, @conveyorNumber, @cabinetNumber)";
             databaseObject.OpenConnection();
             var createCommand = new SQLiteCommand(query, databaseObject.Connection);
             createCommand.Parameters.AddWithValue("@name", employee.Name);
             createCommand.Parameters.AddWithValue("@gender", employee.Gender.ToString());
             createCommand.Parameters.AddWithValue("@birthDate", employee.BirthDate);
-            createCommand.Parameters.AddWithValue("@subunit", "1");
-            createCommand.Parameters.AddWithValue("@job", ((int)employee.JobTitle));
+            createCommand.Parameters.AddWithValue("@subunit", (int)employee.Subunit);
+            createCommand.Parameters.AddWithValue("@job", (int)employee.JobTitle);
             switch (employee.JobTitle)
             {
                 case JobTitle.Worker:
@@ -98,20 +109,28 @@ namespace Employees.Database
                     createCommand.Parameters.AddWithValue("@managerName", worker.ManagerName);
                     createCommand.Parameters.AddWithValue("@subunitName", null);
                     createCommand.Parameters.AddWithValue("@conveyorNumber", null);
+                    createCommand.Parameters.AddWithValue("@cabinetNumber", null);
                     break;
                 case JobTitle.Controller:
                     var controller = (Controller)employee;
                     createCommand.Parameters.AddWithValue("@conveyorNumber", controller.ConveyorNumber);
                     createCommand.Parameters.AddWithValue("@managerName", null);
                     createCommand.Parameters.AddWithValue("@subunitName", null);
+                    createCommand.Parameters.AddWithValue("@cabinetNumber", null);
                     break;
                 case JobTitle.Manager:
                     var manager = (Manager)employee;
                     createCommand.Parameters.AddWithValue("@subunitName", manager.SubunitName);
                     createCommand.Parameters.AddWithValue("@managerName", null);
                     createCommand.Parameters.AddWithValue("@conveyorNumber", null);
+                    createCommand.Parameters.AddWithValue("@cabinetNumber", null);
                     break;
                 case JobTitle.Director:
+                    var director = (Director)employee;
+                    createCommand.Parameters.AddWithValue("@subunitName", null);
+                    createCommand.Parameters.AddWithValue("@managerName", null);
+                    createCommand.Parameters.AddWithValue("@conveyorNumber", null);
+                    createCommand.Parameters.AddWithValue("@cabinetNumber", director.CabinetNumber);
                     break;
             }
             var result = createCommand.ExecuteNonQuery();
