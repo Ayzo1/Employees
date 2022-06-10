@@ -29,6 +29,7 @@ namespace Employees
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.selectionLabel = new System.Windows.Forms.Label();
             this.selectionComboBox = new System.Windows.Forms.ComboBox();
@@ -310,8 +311,9 @@ namespace Employees
             this.Controls.Add(this.selectionComboBox);
             this.Controls.Add(this.selectionLabel);
             this.Controls.Add(this.dataGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Работники";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
