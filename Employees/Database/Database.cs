@@ -1,10 +1,10 @@
 ﻿using System.Data.SQLite;
+using System.IO;
 
 namespace Employees.Database
 {
     class Database: IDatabase
     {
-        private readonly string fileName = "./database.sqlite3";
         public SQLiteConnection Connection { get; }
 
         public Database() 

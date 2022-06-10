@@ -11,7 +11,9 @@ namespace Employees.Database
             var name = reader["name"].ToString();
             Gender gender = (Gender)Enum.Parse(typeof(Gender), reader["gender"].ToString());
             var birthDate = reader["birthDate"].ToString();
-            var subunit = Convert.ToInt32(reader["subunit"]);
+            var subunitInt = Convert.ToInt32(reader["subunit"]);
+            var subunit = Subunit.FirstSubunit;
+            if (subunitInt == 2) subunit = Subunit.SecondSubunit;
             var jobTitle = Convert.ToInt32(reader["job"]);
          
             switch (jobTitle)
@@ -26,11 +28,11 @@ namespace Employees.Database
                     return controller;
                 case 3:
                     var subunitName = reader["subunitName"].ToString();
-                    var manager = new Manager(id, name, gender, birthDate, subunit, JobTitle.Worker, subunitName);
+                    var manager = new Manager(id, name, gender, birthDate, subunit, JobTitle.Manager, subunitName);
                     return manager;
                 case 4:
                     var cabinetNumber = Convert.ToInt32(reader["cabinetNumber"]);
-                    var director = new Director(id, name, gender, birthDate, subunit, JobTitle.Worker, cabinetNumber);
+                    var director = new Director(id, name, gender, birthDate, subunit, JobTitle.Director, cabinetNumber);
                     return director;
                 default:
                     break;
